@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0066CC"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .section-title { font-size: 14px; font-weight: 600; }
+      .improvement-label { font-size: 12px; font-weight: 600; fill: #0066CC; }
+      .metric-label { font-size: 12px; font-weight: 600; }
+      .dim-label { font-size: 10px; fill: #6B7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">Method Improvement Overview</text>
+
+  <!-- ===== Before Section ===== -->
+  <rect x="40" y="60" width="340" height="440" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="210" y="90" text-anchor="middle" class="section-title" fill="#6B7280">Before</text>
+  <text x="210" y="112" text-anchor="middle" class="module-label" fill="#9CA3AF">Baseline Method</text>
+
+  <!-- Before: Component A -->
+  <rect x="110" y="140" width="200" height="44" rx="6" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="210" y="166" text-anchor="middle" class="module-label" fill="#6B7280">Feature Extractor</text>
+
+  <!-- Arrow A → B -->
+  <line x1="210" y1="184" x2="210" y2="218" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Before: Component B -->
+  <rect x="110" y="220" width="200" height="44" rx="6" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="210" y="246" text-anchor="middle" class="module-label" fill="#6B7280">Classifier Head</text>
+
+  <!-- Arrow B → C -->
+  <line x1="210" y1="264" x2="210" y2="298" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Before: Component C -->
+  <rect x="110" y="300" width="200" height="44" rx="6" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="210" y="326" text-anchor="middle" class="module-label" fill="#6B7280">Output Layer</text>
+
+  <!-- Before: Metrics box -->
+  <rect x="100" y="380" width="220" height="44" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+  <text x="210" y="406" text-anchor="middle" class="metric-label" fill="#DC2626">Accuracy: 85.2%</text>
+
+  <!-- ===== Center Arrow ===== -->
+  <!-- Large arrow body -->
+  <polygon points="410,250 530,250 530,230 570,270 530,310 530,290 410,290" fill="#0066CC" opacity="0.15" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="490" y="265" text-anchor="middle" class="improvement-label">Our</text>
+  <text x="490" y="280" text-anchor="middle" class="improvement-label">Improvement</text>
+
+  <!-- Star/sparkle icon -->
+  <polygon points="490,238 493,232 496,238 502,238 497,242 499,248 493,244 487,248 489,242 484,238" fill="#0066CC" opacity="0.7"/>
+
+  <!-- ===== After Section ===== -->
+  <rect x="580" y="60" width="340" height="440" rx="6" fill="#F0F9FF" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="750" y="90" text-anchor="middle" class="section-title" fill="#0066CC">After</text>
+  <text x="750" y="112" text-anchor="middle" class="module-label" fill="#0066CC">Proposed Method</text>
+
+  <!-- After: Component A (enhanced) -->
+  <rect x="650" y="140" width="200" height="44" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="750" y="166" text-anchor="middle" class="module-label">Feature Extractor</text>
+
+  <!-- Arrow A → New Module -->
+  <line x1="750" y1="184" x2="750" y2="218" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- After: NEW module (highlighted in green) -->
+  <rect x="650" y="220" width="200" height="44" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1.5"/>
+  <text x="750" y="246" text-anchor="middle" class="module-label" fill="#059669">Attention Module &#x2605;</text>
+
+  <!-- Arrow New → B -->
+  <line x1="750" y1="264" x2="750" y2="298" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- After: Component B (enhanced) -->
+  <rect x="650" y="300" width="200" height="44" rx="6" fill="#EDE9FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="750" y="326" text-anchor="middle" class="module-label">Classifier Head</text>
+
+  <!-- Arrow B → C -->
+  <line x1="750" y1="344" x2="750" y2="378" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- After: Component C -->
+  <rect x="650" y="380" width="200" height="44" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="750" y="406" text-anchor="middle" class="module-label">Output Layer</text>
+
+  <!-- After: Metrics box -->
+  <rect x="640" y="450" width="220" height="44" rx="6" fill="#D1FAE5" stroke="#059669" stroke-width="1"/>
+  <text x="750" y="476" text-anchor="middle" class="metric-label" fill="#059669">Accuracy: 93.7%</text>
+</svg>

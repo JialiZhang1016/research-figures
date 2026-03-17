@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .state-label { font-size: 14px; font-weight: 600; }
+      .state-sub { font-size: 10px; fill: #6B7280; }
+      .edge-label { font-size: 10px; font-weight: 500; }
+      .dim-label { font-size: 10px; fill: #6B7280; }
+      .legend-label { font-size: 10px; fill: #6B7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">MDP State Transition Diagram</text>
+
+  <!-- ===== State Circles (diamond layout) ===== -->
+
+  <!-- s₀ "Start" (top center) -->
+  <circle cx="480" cy="120" r="40" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="480" y="116" text-anchor="middle" class="state-label">s&#x2080;</text>
+  <text x="480" y="132" text-anchor="middle" class="state-sub">Start</text>
+
+  <!-- s₁ "State 1" (left) -->
+  <circle cx="240" cy="290" r="40" fill="#EDE9FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="240" y="286" text-anchor="middle" class="state-label">s&#x2081;</text>
+  <text x="240" y="302" text-anchor="middle" class="state-sub">State 1</text>
+
+  <!-- s₂ "State 2" (right) -->
+  <circle cx="720" cy="290" r="40" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="720" y="286" text-anchor="middle" class="state-label">s&#x2082;</text>
+  <text x="720" y="302" text-anchor="middle" class="state-sub">State 2</text>
+
+  <!-- s₃ "Terminal" (bottom center, double border) -->
+  <circle cx="480" cy="440" r="40" fill="#FEF3C7" stroke="#1A2332" stroke-width="1.5"/>
+  <circle cx="480" cy="440" r="34" fill="none" stroke="#1A2332" stroke-width="1"/>
+  <text x="480" y="436" text-anchor="middle" class="state-label">s&#x2083;</text>
+  <text x="480" y="452" text-anchor="middle" class="state-sub">Terminal</text>
+
+  <!-- ===== Transition Arrows ===== -->
+
+  <!-- s₀ → s₁: "a₁, r=+1" (top to left) -->
+  <path d="M445,145 Q340,170 268,260" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="310" y="165" width="80" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="350" y="178" text-anchor="middle" class="edge-label">a&#x2081;, r=+1</text>
+
+  <!-- s₀ → s₂: "a₂, r=0" (top to right) -->
+  <path d="M515,145 Q620,170 692,260" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="570" y="165" width="80" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="610" y="178" text-anchor="middle" class="edge-label">a&#x2082;, r=0</text>
+
+  <!-- s₁ → s₂: "a₁, r=+2" (left to right, upper curve) -->
+  <path d="M278,275 Q480,200 682,275" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="440" y="224" width="80" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="480" y="237" text-anchor="middle" class="edge-label">a&#x2081;, r=+2</text>
+
+  <!-- s₁ → s₃: "a₂, r=+10" (left to bottom) -->
+  <path d="M265,325 Q340,400 445,435" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="296" y="378" width="84" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="338" y="391" text-anchor="middle" class="edge-label">a&#x2082;, r=+10</text>
+
+  <!-- s₂ → s₃: "a₁, r=+5" (right to bottom) -->
+  <path d="M695,325 Q620,400 515,435" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="580" y="378" width="80" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="620" y="391" text-anchor="middle" class="edge-label">a&#x2081;, r=+5</text>
+
+  <!-- s₂ → s₀: "a₂, r=-1" (right to top, loop back) -->
+  <path d="M748,260 Q810,150 520,110" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="700" y="152" width="76" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="738" y="165" text-anchor="middle" class="edge-label">a&#x2082;, r=&#x2212;1</text>
+
+  <!-- Self-loop on s₁: "a₃, r=0" -->
+  <path d="M210,260 Q160,200 210,260" fill="none" stroke="#1A2332" stroke-width="1.5"/>
+  <path d="M205,255 Q140,190 220,258" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="120" y="218" width="72" height="18" rx="4" fill="#FFFFFF"/>
+  <text x="156" y="231" text-anchor="middle" class="edge-label">a&#x2083;, r=0</text>
+
+  <!-- ===== Legend (bottom-right) ===== -->
+  <rect x="720" y="490" width="210" height="36" rx="6" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+  <text x="735" y="512" class="legend-label">s&#x1D62; = state, a&#x2C7C; = action, r = reward</text>
+</svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .section-title { font-size: 14px; font-weight: 600; }
+      .badge-label { font-size: 11px; font-weight: 600; }
+      .list-item { font-size: 11px; }
+      .vs-label { font-size: 14px; font-weight: 700; fill: #6B7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">Sequential vs. Parallel Processing</text>
+
+  <!-- ===== Left Half: Approach A (RNN) ===== -->
+  <rect x="30" y="56" width="430" height="460" rx="6" fill="#FEE2E2" fill-opacity="0.35" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="245" y="84" text-anchor="middle" class="section-title">Approach A</text>
+  <text x="245" y="104" text-anchor="middle" class="module-label" fill="#6B7280">RNN Processing</text>
+
+  <!-- RNN Chain: h1 → h2 → h3 → h4 -->
+  <rect x="62" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="97" y="164" text-anchor="middle" class="module-label">h&#x2081;</text>
+
+  <line x1="132" y1="160" x2="158" y2="160" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <rect x="160" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="195" y="164" text-anchor="middle" class="module-label">h&#x2082;</text>
+
+  <line x1="230" y1="160" x2="256" y2="160" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <rect x="258" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="293" y="164" text-anchor="middle" class="module-label">h&#x2083;</text>
+
+  <line x1="328" y1="160" x2="354" y2="160" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <rect x="356" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="391" y="164" text-anchor="middle" class="module-label">h&#x2084;</text>
+
+  <!-- Sequential badge -->
+  <rect x="175" y="210" width="140" height="28" rx="14" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+  <text x="245" y="228" text-anchor="middle" class="badge-label" fill="#DC2626">Sequential O(n)</text>
+
+  <!-- Cons list -->
+  <text x="140" y="280" class="list-item" fill="#DC2626">&#x2717;</text>
+  <text x="158" y="280" class="list-item">No parallelism</text>
+  <text x="140" y="306" class="list-item" fill="#DC2626">&#x2717;</text>
+  <text x="158" y="306" class="list-item">Vanishing gradients</text>
+
+  <!-- ===== Center Divider ===== -->
+  <line x1="480" y1="70" x2="480" y2="500" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <circle cx="480" cy="270" r="18" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="1.5"/>
+  <text x="480" y="275" text-anchor="middle" class="vs-label">vs</text>
+
+  <!-- ===== Right Half: Approach B (Transformer) ===== -->
+  <rect x="500" y="56" width="430" height="460" rx="6" fill="#D1FAE5" fill-opacity="0.35" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="715" y="84" text-anchor="middle" class="section-title">Approach B</text>
+  <text x="715" y="104" text-anchor="middle" class="module-label" fill="#6B7280">Transformer Processing</text>
+
+  <!-- Transformer boxes -->
+  <rect x="552" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="587" y="164" text-anchor="middle" class="module-label">x&#x2081;</text>
+
+  <rect x="648" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="683" y="164" text-anchor="middle" class="module-label">x&#x2082;</text>
+
+  <rect x="744" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="779" y="164" text-anchor="middle" class="module-label">x&#x2083;</text>
+
+  <rect x="840" y="140" width="70" height="40" rx="6" fill="#FFFFFF" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="875" y="164" text-anchor="middle" class="module-label">x&#x2084;</text>
+
+  <!-- Bidirectional attention lines (connecting all pairs) -->
+  <!-- x1-x2 -->
+  <path d="M607,140 Q645,120 663,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <!-- x1-x3 -->
+  <path d="M607,140 Q693,108 759,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <!-- x1-x4 -->
+  <path d="M607,140 Q741,96 855,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <!-- x2-x3 -->
+  <path d="M703,140 Q741,120 759,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <!-- x2-x4 -->
+  <path d="M703,140 Q789,108 855,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <!-- x3-x4 -->
+  <path d="M799,140 Q837,120 855,140" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+
+  <!-- Bottom connections (mirrored) -->
+  <path d="M607,180 Q645,200 663,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <path d="M607,180 Q693,212 759,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <path d="M607,180 Q741,224 855,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <path d="M703,180 Q741,200 759,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <path d="M703,180 Q789,212 855,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+  <path d="M799,180 Q837,200 855,180" fill="none" stroke="#0066CC" stroke-width="1" opacity="0.5"/>
+
+  <!-- Parallel badge -->
+  <rect x="645" y="210" width="140" height="28" rx="14" fill="#D1FAE5" stroke="#059669" stroke-width="1"/>
+  <text x="715" y="228" text-anchor="middle" class="badge-label" fill="#059669">Parallel O(1)</text>
+
+  <!-- Pros list -->
+  <text x="610" y="280" class="list-item" fill="#059669">&#x2713;</text>
+  <text x="628" y="280" class="list-item">Full parallelism</text>
+  <text x="610" y="306" class="list-item" fill="#059669">&#x2713;</text>
+  <text x="628" y="306" class="list-item">Global context</text>
+</svg>

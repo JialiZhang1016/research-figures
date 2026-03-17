@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0066CC"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .group-label { font-size: 14px; font-weight: 600; }
+      .arrow-label { font-size: 11px; font-weight: 500; }
+      .dim-label { font-size: 10px; fill: #6B7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">Reinforcement Learning Loop</text>
+
+  <!-- ===== Agent Group (Top) ===== -->
+  <rect x="180" y="60" width="600" height="160" rx="6" fill="none" stroke="#1A2332" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="210" y="84" class="group-label">Agent</text>
+
+  <!-- Policy module -->
+  <rect x="240" y="110" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="340" y="140" text-anchor="middle" class="module-label">Policy &#x03C0;(a|s)</text>
+
+  <!-- Value module -->
+  <rect x="520" y="110" width="200" height="50" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="620" y="140" text-anchor="middle" class="module-label">Value V(s)</text>
+
+  <!-- ===== Horizontal Dashed Separator ===== -->
+  <line x1="120" y1="300" x2="840" y2="300" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="6 3"/>
+
+  <!-- ===== Environment Group (Bottom) ===== -->
+  <rect x="180" y="320" width="600" height="160" rx="6" fill="none" stroke="#1A2332" stroke-width="1.5" stroke-dasharray="8 4"/>
+  <text x="210" y="344" class="group-label">Environment</text>
+
+  <!-- State Transition module -->
+  <rect x="240" y="365" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="340" y="394" text-anchor="middle" class="module-label">State Transition</text>
+
+  <!-- Reward Function module -->
+  <rect x="520" y="365" width="200" height="50" rx="6" fill="#FEF3C7" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="620" y="394" text-anchor="middle" class="module-label">Reward Function</text>
+
+  <!-- ===== Loop Arrows ===== -->
+
+  <!-- Agent → Environment: "Action aₜ" (left side, downward) -->
+  <line x1="220" y1="220" x2="220" y2="318" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="130" y="258" width="76" height="22" rx="4" fill="#FFFFFF"/>
+  <text x="168" y="273" text-anchor="middle" class="arrow-label">Action a&#x209C;</text>
+
+  <!-- Environment → Agent: "State sₜ₊₁" (right side, upward) -->
+  <line x1="740" y1="320" x2="740" y2="222" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <rect x="750" y="258" width="80" height="22" rx="4" fill="#FFFFFF"/>
+  <text x="790" y="273" text-anchor="middle" class="arrow-label">State s&#x209C;&#x208A;&#x2081;</text>
+
+  <!-- Environment → Agent: "Reward rₜ" (center, upward, dashed) -->
+  <line x1="480" y1="320" x2="480" y2="222" stroke="#0066CC" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrowhead-dashed)"/>
+  <rect x="440" y="258" width="80" height="22" rx="4" fill="#FFFFFF"/>
+  <text x="480" y="273" text-anchor="middle" class="arrow-label" fill="#0066CC">Reward r&#x209C;</text>
+</svg>

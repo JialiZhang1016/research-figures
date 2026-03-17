@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <marker id="arrowhead-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7C3AED"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .dim-label { font-size: 10px; fill: #6B7280; }
+      .node-label { font-size: 12px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">Encoder-Decoder Architecture</text>
+
+  <!-- ===== Input Node (pill shape) ===== -->
+  <rect x="30" y="235" width="100" height="50" rx="25" fill="#EDE9FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="80" y="264" text-anchor="middle" class="node-label">Input x</text>
+
+  <!-- Arrow: Input → Encoder Layer 1 -->
+  <line x1="130" y1="260" x2="178" y2="260" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ===== Encoder Stack ===== -->
+  <!-- Encoder Layer 1 (bottom) -->
+  <rect x="180" y="350" width="140" height="44" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="250" y="376" text-anchor="middle" class="module-label">Encoder Layer 1</text>
+
+  <!-- Arrow: Input → Encoder L1 (angled) -->
+  <path d="M130,260 L160,260 L160,372 L178,372" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Dimension: Input → Encoder L1 -->
+  <text x="145" y="320" text-anchor="middle" class="dim-label">[B, 512]</text>
+
+  <!-- Arrow: Encoder L1 → L2 -->
+  <line x1="250" y1="350" x2="250" y2="310" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="270" y="335" class="dim-label">[B, 256]</text>
+
+  <!-- Encoder Layer 2 (middle) -->
+  <rect x="180" y="262" width="140" height="44" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="250" y="288" text-anchor="middle" class="module-label">Encoder Layer 2</text>
+
+  <!-- Arrow: Encoder L2 → L3 -->
+  <line x1="250" y1="262" x2="250" y2="222" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="270" y="247" class="dim-label">[B, 128]</text>
+
+  <!-- Encoder Layer 3 (top) -->
+  <rect x="180" y="174" width="140" height="44" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="250" y="200" text-anchor="middle" class="module-label">Encoder Layer 3</text>
+
+  <!-- ===== Latent / Bottleneck ===== -->
+  <!-- Arrow: Encoder L3 → Latent -->
+  <line x1="320" y1="196" x2="398" y2="196" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="360" y="188" text-anchor="middle" class="dim-label">[B, 64]</text>
+
+  <rect x="400" y="176" width="120" height="40" rx="6" fill="#FEF3C7" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="460" y="200" text-anchor="middle" class="module-label">Latent z</text>
+
+  <!-- Arrow: Latent → Decoder L3 -->
+  <line x1="520" y1="196" x2="558" y2="196" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="540" y="188" text-anchor="middle" class="dim-label">[B, 64]</text>
+
+  <!-- ===== Decoder Stack ===== -->
+  <!-- Decoder Layer 3 (top) -->
+  <rect x="560" y="174" width="140" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="630" y="200" text-anchor="middle" class="module-label">Decoder Layer 3</text>
+
+  <!-- Arrow: Decoder L3 → L2 -->
+  <line x1="630" y1="218" x2="630" y2="258" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="650" y="243" class="dim-label">[B, 128]</text>
+
+  <!-- Decoder Layer 2 (middle) -->
+  <rect x="560" y="262" width="140" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="630" y="288" text-anchor="middle" class="module-label">Decoder Layer 2</text>
+
+  <!-- Arrow: Decoder L2 → L1 -->
+  <line x1="630" y1="306" x2="630" y2="346" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="650" y="331" class="dim-label">[B, 256]</text>
+
+  <!-- Decoder Layer 1 (bottom) -->
+  <rect x="560" y="350" width="140" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="630" y="376" text-anchor="middle" class="module-label">Decoder Layer 1</text>
+
+  <!-- ===== Output Node (pill shape) ===== -->
+  <!-- Arrow: Decoder L1 → Output -->
+  <path d="M700,372 L720,372 L720,260 L748,260" fill="none" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="735" y="320" class="dim-label">[B, 512]</text>
+
+  <rect x="750" y="235" width="100" height="50" rx="25" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="800" y="264" text-anchor="middle" class="node-label">Output y</text>
+
+  <!-- ===== Skip Connections (curved dashed lines) ===== -->
+  <!-- Skip: Encoder L1 → Decoder L1 -->
+  <path d="M320,372 C400,460 520,460 560,372"
+        fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 3"
+        marker-end="url(#arrowhead-purple)"/>
+  <text x="440" y="450" text-anchor="middle" class="dim-label" fill="#7C3AED">skip</text>
+
+  <!-- Skip: Encoder L2 → Decoder L2 -->
+  <path d="M320,284 C400,340 520,340 560,284"
+        fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 3"
+        marker-end="url(#arrowhead-purple)"/>
+  <text x="440" y="330" text-anchor="middle" class="dim-label" fill="#7C3AED">skip</text>
+
+  <!-- Skip: Encoder L3 → Decoder L3 -->
+  <path d="M320,196 C370,140 530,140 560,196"
+        fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 3"
+        marker-end="url(#arrowhead-purple)"/>
+  <text x="440" y="136" text-anchor="middle" class="dim-label" fill="#7C3AED">skip</text>
+
+  <!-- Legend -->
+  <line x1="30" y1="510" x2="60" y2="510" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="65" y="514" class="dim-label" fill="#1A2332">Data flow</text>
+  <line x1="140" y1="510" x2="170" y2="510" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="175" y="514" class="dim-label" fill="#7C3AED">Skip connection</text>
+</svg>

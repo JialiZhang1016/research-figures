@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <style>
+      text { font-family: 'Inter', system-ui, sans-serif; }
+      .title { font-size: 18px; font-weight: 700; fill: #1A2332; }
+      .module-label { font-size: 12px; font-weight: 600; fill: #1A2332; }
+      .sub-label { font-size: 10px; fill: #6B7280; }
+      .annotation { font-size: 10px; fill: #0066CC; font-weight: 600; font-family: 'Inter', system-ui, sans-serif; }
+      .branch-label { font-size: 10px; fill: #6B7280; font-style: italic; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 7" refX="9" refY="3.5"
+            markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#0066CC"/>
+    </marker>
+    <marker id="arrow-dashed" viewBox="0 0 10 7" refX="9" refY="3.5"
+            markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#9CA3AF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="38" text-anchor="middle" class="title">Data Processing Pipeline</text>
+
+  <!-- ===== Stage 1: Raw Data (cylinder) ===== -->
+  <!-- Cylinder body -->
+  <rect x="40" y="215" width="100" height="60" fill="#E8F0FE" stroke="#0066CC" stroke-width="1.5"/>
+  <!-- Cylinder top ellipse -->
+  <ellipse cx="90" cy="215" rx="50" ry="12" fill="#E8F0FE" stroke="#0066CC" stroke-width="1.5"/>
+  <!-- Cylinder bottom ellipse (front half only) -->
+  <path d="M 40,275 A 50,12 0 0,0 140,275" fill="#E8F0FE" stroke="#0066CC" stroke-width="1.5"/>
+  <!-- Hide the bottom line of rect behind cylinder curve -->
+  <rect x="41" y="270" width="98" height="6" fill="#E8F0FE" stroke="none"/>
+  <text x="90" y="252" text-anchor="middle" class="module-label">Raw Data</text>
+  <!-- Annotation -->
+  <text x="90" y="302" text-anchor="middle" class="annotation">[N samples]</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="140" y1="245" x2="185" y2="245" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== Stage 2: Preprocess ===== -->
+  <rect x="190" y="221" width="120" height="48" rx="6" ry="6"
+        fill="#E8F0FE" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="250" y="244" text-anchor="middle" class="module-label">Preprocess</text>
+  <text x="250" y="258" text-anchor="middle" class="sub-label">normalize, clean</text>
+
+  <!-- Arrow 2→3 with annotation -->
+  <line x1="310" y1="245" x2="365" y2="245" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="338" y="237" text-anchor="middle" class="annotation">[N, D]</text>
+
+  <!-- ===== Stage 3: Feature Extract ===== -->
+  <rect x="370" y="221" width="130" height="48" rx="6" ry="6"
+        fill="#EDE9FE" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="435" y="244" text-anchor="middle" class="module-label">Feature Extract</text>
+  <text x="435" y="258" text-anchor="middle" class="sub-label">embeddings</text>
+
+  <!-- Arrow 3→4 with annotation -->
+  <line x1="500" y1="245" x2="555" y2="245" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="528" y="237" text-anchor="middle" class="annotation">[N, D]</text>
+
+  <!-- ===== Stage 4: Train/Val Split (diamond) ===== -->
+  <polygon points="600,245 645,215 690,245 645,275"
+           fill="#FEF3C7" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="645" y="243" text-anchor="middle" class="module-label" font-size="10">Train/Val</text>
+  <text x="645" y="255" text-anchor="middle" class="module-label" font-size="10">Split</text>
+
+  <!-- ===== Upper Branch: Train Set → Model ===== -->
+  <!-- Arrow from diamond to Train Set -->
+  <path d="M 670,222 L 700,165 L 730,165" fill="none" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="698" y="185" text-anchor="middle" class="branch-label">[80%]</text>
+
+  <!-- Train Set box -->
+  <rect x="735" y="141" width="90" height="38" rx="6" ry="6"
+        fill="#D1FAE5" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="780" y="165" text-anchor="middle" class="module-label">Train Set</text>
+  <!-- Annotation -->
+  <text x="780" y="133" text-anchor="middle" class="annotation">[B, D]</text>
+
+  <!-- Arrow Train Set → Model -->
+  <line x1="825" y1="160" x2="855" y2="160" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Model box -->
+  <rect x="860" y="136" width="80" height="48" rx="6" ry="6"
+        fill="#D1FAE5" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="900" y="165" text-anchor="middle" class="module-label">Model</text>
+
+  <!-- ===== Lower Branch: Val Set → Evaluate ===== -->
+  <!-- Arrow from diamond to Val Set -->
+  <path d="M 670,268 L 700,325 L 730,325" fill="none" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="698" y="310" text-anchor="middle" class="branch-label">[20%]</text>
+
+  <!-- Val Set box -->
+  <rect x="735" y="301" width="90" height="38" rx="6" ry="6"
+        fill="#FEE2E2" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="780" y="325" text-anchor="middle" class="module-label">Val Set</text>
+
+  <!-- Arrow Val Set → Evaluate -->
+  <line x1="825" y1="320" x2="855" y2="320" stroke="#0066CC" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Evaluate box -->
+  <rect x="860" y="296" width="80" height="48" rx="6" ry="6"
+        fill="#FEE2E2" stroke="#0066CC" stroke-width="1.5"/>
+  <text x="900" y="325" text-anchor="middle" class="module-label">Evaluate</text>
+
+  <!-- ===== Dotted feedback arrow: Evaluate → Model ===== -->
+  <path d="M 920,296 C 935,250 935,210 920,184"
+        fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="5 3"
+        marker-end="url(#arrow-dashed)"/>
+  <text x="942" y="240" text-anchor="start" font-size="9" fill="#9CA3AF"
+        font-family="Inter, system-ui, sans-serif" font-style="italic"
+        transform="rotate(-90, 942, 240)">hyperparameter tuning</text>
+
+  <!-- ===== Step Number Badges ===== -->
+  <circle cx="48" cy="212" r="10" fill="#0066CC"/>
+  <text x="48" y="216" text-anchor="middle" font-size="9" fill="#FFFFFF"
+        font-family="Inter, system-ui, sans-serif" font-weight="700">1</text>
+
+  <circle cx="196" cy="224" r="10" fill="#0066CC"/>
+  <text x="196" y="228" text-anchor="middle" font-size="9" fill="#FFFFFF"
+        font-family="Inter, system-ui, sans-serif" font-weight="700">2</text>
+
+  <circle cx="376" cy="224" r="10" fill="#0066CC"/>
+  <text x="376" y="228" text-anchor="middle" font-size="9" fill="#FFFFFF"
+        font-family="Inter, system-ui, sans-serif" font-weight="700">3</text>
+
+  <circle cx="616" cy="248" r="10" fill="#0066CC"/>
+  <text x="616" y="252" text-anchor="middle" font-size="9" fill="#FFFFFF"
+        font-family="Inter, system-ui, sans-serif" font-weight="700">4</text>
+</svg>

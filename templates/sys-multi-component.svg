@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1A2332"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', sans-serif; fill: #1A2332; }
+      .title { font-size: 18px; font-weight: 700; }
+      .module-label { font-size: 12px; font-weight: 500; }
+      .dim-label { font-size: 10px; fill: #6B7280; }
+      .group-label { font-size: 13px; font-weight: 600; fill: #6B7280; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" class="title">Microservice System Architecture</text>
+
+  <!-- ===== Layer Group Boxes (dashed) ===== -->
+  <!-- Clients layer -->
+  <rect x="200" y="55" width="560" height="75" rx="6" fill="none" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="6 3"/>
+  <text x="215" y="72" class="group-label">Clients</text>
+
+  <!-- Services layer -->
+  <rect x="120" y="155" width="720" height="165" rx="6" fill="none" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="6 3"/>
+  <text x="135" y="172" class="group-label">Services</text>
+
+  <!-- Storage layer -->
+  <rect x="140" y="350" width="680" height="130" rx="6" fill="none" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="6 3"/>
+  <text x="155" y="367" class="group-label">Storage</text>
+
+  <!-- ===== Top Row: Client Layer ===== -->
+  <!-- Web App -->
+  <rect x="290" y="80" width="140" height="40" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="360" y="105" text-anchor="middle" class="module-label">Web App</text>
+
+  <!-- Mobile App -->
+  <rect x="530" y="80" width="140" height="40" rx="6" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="600" y="105" text-anchor="middle" class="module-label">Mobile App</text>
+
+  <!-- ===== Middle Row: Service Layer ===== -->
+  <!-- API Gateway (wide) -->
+  <rect x="280" y="175" width="400" height="40" rx="6" fill="#EDE9FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="480" y="200" text-anchor="middle" class="module-label">API Gateway</text>
+
+  <!-- Auth Service -->
+  <rect x="170" y="255" width="160" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="250" y="281" text-anchor="middle" class="module-label">Auth Service</text>
+
+  <!-- Data Service -->
+  <rect x="400" y="255" width="160" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="480" y="281" text-anchor="middle" class="module-label">Data Service</text>
+
+  <!-- ML Service -->
+  <rect x="630" y="255" width="160" height="44" rx="6" fill="#D1FAE5" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="710" y="281" text-anchor="middle" class="module-label">ML Service</text>
+
+  <!-- ===== Bottom Row: Storage Layer ===== -->
+  <!-- PostgreSQL (cylinder) -->
+  <ellipse cx="250" cy="385" rx="60" ry="12" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <rect x="190" y="385" width="120" height="50" fill="#E8F0FE" stroke="none"/>
+  <line x1="190" y1="385" x2="190" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <line x1="310" y1="385" x2="310" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <ellipse cx="250" cy="435" rx="60" ry="12" fill="#E8F0FE" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="250" y="416" text-anchor="middle" class="module-label">PostgreSQL</text>
+
+  <!-- Redis Cache (cylinder) -->
+  <ellipse cx="480" cy="385" rx="60" ry="12" fill="#FEF3C7" stroke="#1A2332" stroke-width="1.5"/>
+  <rect x="420" y="385" width="120" height="50" fill="#FEF3C7" stroke="none"/>
+  <line x1="420" y1="385" x2="420" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <line x1="540" y1="385" x2="540" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <ellipse cx="480" cy="435" rx="60" ry="12" fill="#FEF3C7" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="480" y="416" text-anchor="middle" class="module-label">Redis Cache</text>
+
+  <!-- Model Store (cylinder) -->
+  <ellipse cx="710" cy="385" rx="60" ry="12" fill="#FEE2E2" stroke="#1A2332" stroke-width="1.5"/>
+  <rect x="650" y="385" width="120" height="50" fill="#FEE2E2" stroke="none"/>
+  <line x1="650" y1="385" x2="650" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <line x1="770" y1="385" x2="770" y2="435" stroke="#1A2332" stroke-width="1.5"/>
+  <ellipse cx="710" cy="435" rx="60" ry="12" fill="#FEE2E2" stroke="#1A2332" stroke-width="1.5"/>
+  <text x="710" y="416" text-anchor="middle" class="module-label">Model Store</text>
+
+  <!-- ===== Arrows ===== -->
+  <!-- Web App → API Gateway -->
+  <line x1="360" y1="120" x2="420" y2="173" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <!-- Mobile App → API Gateway -->
+  <line x1="600" y1="120" x2="540" y2="173" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- API Gateway → Auth Service -->
+  <line x1="380" y1="215" x2="280" y2="253" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <!-- API Gateway → Data Service -->
+  <line x1="480" y1="215" x2="480" y2="253" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <!-- API Gateway → ML Service -->
+  <line x1="580" y1="215" x2="680" y2="253" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Auth Service → PostgreSQL -->
+  <line x1="250" y1="299" x2="250" y2="371" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Data Service → PostgreSQL -->
+  <line x1="440" y1="299" x2="290" y2="371" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <!-- Data Service → Redis -->
+  <line x1="480" y1="299" x2="480" y2="371" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ML Service → Model Store -->
+  <line x1="710" y1="299" x2="710" y2="371" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <!-- ML Service → Redis -->
+  <line x1="670" y1="299" x2="520" y2="371" stroke="#1A2332" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Legend -->
+  <rect x="30" y="500" width="14" height="10" rx="2" fill="#E8F0FE" stroke="#1A2332" stroke-width="1"/>
+  <text x="50" y="510" class="dim-label" fill="#1A2332">Client / DB</text>
+  <rect x="130" y="500" width="14" height="10" rx="2" fill="#EDE9FE" stroke="#1A2332" stroke-width="1"/>
+  <text x="150" y="510" class="dim-label" fill="#1A2332">Gateway</text>
+  <rect x="210" y="500" width="14" height="10" rx="2" fill="#D1FAE5" stroke="#1A2332" stroke-width="1"/>
+  <text x="230" y="510" class="dim-label" fill="#1A2332">Service</text>
+  <rect x="290" y="500" width="14" height="10" rx="2" fill="#FEF3C7" stroke="#1A2332" stroke-width="1"/>
+  <text x="310" y="510" class="dim-label" fill="#1A2332">Cache</text>
+  <rect x="360" y="500" width="14" height="10" rx="2" fill="#FEE2E2" stroke="#1A2332" stroke-width="1"/>
+  <text x="380" y="510" class="dim-label" fill="#1A2332">Model</text>
+</svg>
